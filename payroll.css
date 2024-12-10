@@ -1,16 +1,15 @@
-/* General Styling */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F0F8FF; /* Alice Blue */
-    color: #333; /* Dark text for contrast */
+    background-color: #F0F8FF;
+    color: #333; 
 }
 
-/* Header and Navigation */
+
 header {
-    background-color: #4682B4; /* Steel Blue for header */
-    color: #F0F8FF; /* Alice Blue text */
+    background-color: #4682B4; 
+    color: #F0F8FF; 
     padding: 10px 20px;
     position: sticky;
     top: 0;
@@ -50,12 +49,12 @@ header {
 }
 
 .nav-links a:hover {
-    background-color: #5F9EA0; /* Cadet Blue */
+    background-color: #5F9EA0; 
 }
 
-/* Form Styling */
+
 form {
-    background-color: #FFFFFF; /* White form background for contrast */
+    background-color: #FFFFFF; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -74,13 +73,13 @@ form input {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid #B0C4DE; /* Light Steel Blue */
+    border: 1px solid #B0C4DE; 
     border-radius: 5px;
 }
 
 form button {
-    background-color: #4682B4; /* Steel Blue button */
-    color: #F0F8FF; /* Alice Blue text */
+    background-color: #4682B4; 
+    color: #F0F8FF; 
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -89,9 +88,8 @@ form button {
 }
 
 form button:hover {
-    background-color: #5F9EA0; /* Cadet Blue */
+    background-color: #5F9EA0; 
 }
-
 
 table {
     width: 90%;
@@ -120,7 +118,7 @@ tbody td {
 }
 
 tfoot {
-    background-color: #B0C4DE; 
+    background-color: #B0C4DE;
     font-weight: bold;
 }
 
