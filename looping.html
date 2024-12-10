@@ -7,13 +7,15 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-       
         header {
             background-color: #333;
             color: white;
@@ -41,19 +43,19 @@
             border-radius: 5px;
         }
 
-     
-        .container {
+        main {
+            flex: 1;
             padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
             background: white;
-            margin: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 40px auto;
         }
 
         h1 {
             color: #333;
+            text-align: center;
         }
 
         label {
@@ -93,49 +95,71 @@
             border-radius: 5px;
             text-align: left;
         }
+
+       
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
 
-  
     <header>
         <nav class="navbar">
             <a href="index.html">Home</a>
-            <h1>Print N Natural Numbers</h1>
+            <span>Print Natural Numbers</span>
         </nav>
     </header>
 
-    <div class="container">
+
+    <main>
         <h1>Print N Natural Numbers</h1>
         <label for="number">Enter a Number (N)</label>
         <input type="number" id="number" placeholder="Enter a positive integer">
         <button onclick="printNaturalNumbers()">Print Numbers</button>
-        <div class="result" id="result"></div>
-    </div>
+        <div class="result" id="result" aria-live="polite"></div>
+    </main>
 
-    
+ 
+    <footer>
+        <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
+    </footer>
+
+   
     <script>
         function printNaturalNumbers() {
-            
-            const n = parseInt(document.getElementById("number").value);
+           
+            const numberInput = document.getElementById("number");
+            const n = parseInt(numberInput.value);
             const resultDiv = document.getElementById("result");
-t
+
+            resultDiv.innerText = "";
+            numberInput.classList.remove("invalid");
+
+           
             if (isNaN(n) || n <= 0) {
                 resultDiv.innerText = "Please enter a valid positive integer.";
+                numberInput.classList.add("invalid");
                 return;
             }
 
-            
             let numbers = "";
             for (let i = 1; i <= n; i++) {
-                numbers += i + (i < n ? ", " : ""); 
+                numbers += i + (i < n ? ", " : "");
             }
 
-            
+          
             resultDiv.innerText = `The first ${n} natural numbers are:\n${numbers}`;
         }
     </script>
-
 </body>
 </html>
-
