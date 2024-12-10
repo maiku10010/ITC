@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Template</title>
+    <title>Conversion Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,80 +11,33 @@
     <header>
         <nav class="navbar">
             <a href="index.html" class="home-link">Home</a>
-            <h1 class="project-title">Project Title</h1>
+            <h1 class="project-title">Conversion Project</h1>
         </nav>
     </header>
 
-   
+ 
     <main>
-        <div class="content">
+        <div class="content center">
             <h2>Conversion</h2>
-                <style>
-        .center {
-            font-family: Helvetica, sans-serif;
-            margin: auto;
-            background-color:aliceblue;
-            padding: 20px;
-            width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .center input {
-            display: block;
-            margin: 10px auto;
-            padding: 8px;
-            width: 80%;
-            font-family: Helvetica, sans-serif;
-        }
-        .center label {
-            display: block;
-            font-weight: bold;
-        }
-        .center button {
-            display: block;
-            margin: 5px auto;
-            padding: 10px 20px;
-            background-color:lightblue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .center button:hover {
-            background-color: blue;
-        }
-        .center select {
-            display: block;
-            margin: 5px auto;
-            padding: 8px;
-            width: 80%;
-        }
-    </style>
+            <label for="conversion">Choose a Conversion Method:</label>
+            <select name="method" id="conversion">
+                <option value="celToFah">Celsius to Fahrenheit</option>
+                <option value="fahToCel">Fahrenheit to Celsius</option>
+                <option value="meToFeet">Meters to Feet</option>
+                <option value="feeToMe">Feet to Meters</option>
+            </select>
 
+            <label for="number">Input Number</label>
+            <input type="number" id="number">
 
-<body>
-    <div class="center">
-        <label for="conversion">Choose a Conversion Method:</label>
-        <select name="method" id="conversion">     
-            <option value="celToFah">Celsius to Fahrenheit</option>
-            <option value="fahToCel">Fahrenheit to Celsius</option>
-            <option value="meToFeet">Meters to Feet</option>
-            <option value="feeToMe">Feet to Meters</option>
-        </select>
-        
-        <label for="number">Input Number</label>
-        <input type="number" id="number">
-        
-        <label for="converted">Converted Value</label>
-        <input type="number" id="converted" readonly>
+            <label for="converted">Converted Value</label>
+            <input type="number" id="converted" readonly>
 
-        <button onclick="convertFunction()">Calculate</button>
-    </div>
-           
+            <button onclick="convertFunction()">Calculate</button>
         </div>
     </main>
-    
+
+   
     <script>
         function convertFunction() {
             const method = document.getElementById("conversion").value;
@@ -98,10 +51,10 @@
 
             switch (method) {
                 case "celToFah":
-                    result = (input * 9/5) + 32;
+                    result = (input * 9 / 5) + 32;
                     break;
                 case "fahToCel":
-                    result = (input - 32) * 5/9;
+                    result = (input - 32) * 5 / 9;
                     break;
                 case "meToFeet":
                     result = input * 3.28084;
@@ -118,6 +71,7 @@
         }
     </script>
 
+   
     <footer>
         <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
     </footer>
