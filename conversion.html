@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   
+  
     <header>
         <nav class="navbar">
             <a href="index.html" class="home-link">Home</a>
@@ -15,29 +15,30 @@
         </nav>
     </header>
 
- 
     <main>
-        <div class="content center">
+        <div class="content">
             <h2>Conversion</h2>
-            <label for="conversion">Choose a Conversion Method:</label>
-            <select name="method" id="conversion">
-                <option value="celToFah">Celsius to Fahrenheit</option>
-                <option value="fahToCel">Fahrenheit to Celsius</option>
-                <option value="meToFeet">Meters to Feet</option>
-                <option value="feeToMe">Feet to Meters</option>
-            </select>
+            <div class="center">
+                <label for="conversion">Choose a Conversion Method:</label>
+                <select name="method" id="conversion">
+                    <option value="celToFah">Celsius to Fahrenheit</option>
+                    <option value="fahToCel">Fahrenheit to Celsius</option>
+                    <option value="meToFeet">Meters to Feet</option>
+                    <option value="feeToMe">Feet to Meters</option>
+                </select>
 
-            <label for="number">Input Number</label>
-            <input type="number" id="number">
+                <label for="number">Input Number</label>
+                <input type="number" id="number" placeholder="Enter a value">
 
-            <label for="converted">Converted Value</label>
-            <input type="number" id="converted" readonly>
+                <label for="converted">Converted Value</label>
+                <input type="number" id="converted" readonly placeholder="Result">
 
-            <button onclick="convertFunction()">Calculate</button>
+                <button onclick="convertFunction()">Calculate</button>
+            </div>
         </div>
     </main>
 
-   
+  
     <script>
         function convertFunction() {
             const method = document.getElementById("conversion").value;
