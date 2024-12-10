@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payroll</title>
     <style>
-        /* General Styles */
+     
         body {
             font-family: Arial, sans-serif;
             background-color: aliceblue;
@@ -17,7 +17,7 @@
         }
 
         header {
-            background-color: #4682b4; /* Steel Blue for contrast */
+            background-color: #4682b4; 
             color: white;
             padding: 10px 20px;
             display: flex;
@@ -101,7 +101,7 @@
             margin: 10px 5px;
         }
 
-        /* Sticky Footer */
+      
         footer {
             background-color: #4682b4;
             color: white;
@@ -113,13 +113,12 @@
     </style>
 </head>
 <body>
-    <!-- Sticky Header -->
+   
     <header>
         <h1 class="header-title">Simple Payroll</h1>
         <a href="index.html" class="link">Home</a>
     </header>
 
-    <!-- Content -->
     <div class="container">
         <form id="employeeForm" novalidate>
             <label for="name">Employee Name</label>
@@ -165,12 +164,12 @@
         </div>
     </div>
 
-    <!-- Sticky Footer -->
+    
     <footer>
-        <p>&copy; 2024 Payroll System. All rights reserved.</p>
+        <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
+   
     <script>
         let employeeNo = 1;
         let totalGrossPay = 0;
@@ -180,22 +179,22 @@
         document.getElementById('employeeForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form values
+            
             const name = document.getElementById('name').value;
             const daysWorked = parseInt(document.getElementById('daysworked').value);
             const dailyRate = parseFloat(document.getElementById('dailyrate').value);
             const deduction = parseFloat(document.getElementById('deduction').value);
 
-            // Calculate pay
+           
             const grossPay = daysWorked * dailyRate;
             const netPay = grossPay - deduction;
 
-            // Update totals
+          
             totalGrossPay += grossPay;
             totalDeduction += deduction;
             totalNetPay += netPay;
 
-            // Add row to table
+          
             const tableBody = document.getElementById('tablebody');
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
@@ -209,12 +208,10 @@
             `;
             tableBody.appendChild(newRow);
 
-            // Update footer totals
             document.getElementById('tGrossPay').textContent = totalGrossPay.toFixed(2);
             document.getElementById('tDeduction').textContent = totalDeduction.toFixed(2);
             document.getElementById('tNetPay').textContent = totalNetPay.toFixed(2);
 
-            // Clear form
             e.target.reset();
         });
 
