@@ -9,6 +9,11 @@
 <body>
     <header>
         <nav class="navbar">
+            <div class="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <ul class="nav-menu">
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link">Home</a>
@@ -29,12 +34,21 @@
     <main>
         <div class="content">
             <h1>Welcome to the Homepage</h1>
-            <p>This is my webpage for CS1130</p>
+            <p>I am Myk Paul Edison L. Fugata from CS - 1B, and this is my webpage for CS1130.</p>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
     </footer>
+
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
