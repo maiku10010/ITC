@@ -1,0 +1,43 @@
+body {
+    background-color:powderblue;
+    .center {
+        font-family: Helvetica, sans-serif;
+        margin: auto;
+        background-color:aliceblue;
+        padding: 20px;
+        width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .center input {
+        display: block;
+        margin: 10px auto;
+        padding: 8px;
+        width: 80%;
+        font-family: Helvetica, sans-serif;
+    }
+    .center label {
+        display: block;
+        font-weight: bold;
+    }
+    .center button {
+        display: block;
+        margin: 5px auto;
+        padding: 10px 20px;
+        background-color:lightblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .center button:hover {
+        background-color: blue;
+    }
+    .center select {
+        display: block;
+        margin: 5px auto;
+        padding: 8px;
+        width: 80%;
+    }
+}
