@@ -4,79 +4,230 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payroll</title>
-    <link rel="stylesheet" href="payroll.css" />
-    <script src="payroll.js" defer></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4682b4; /* Steel Blue for contrast */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        header a:hover {
+            background-color: #5a9bd3;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, button {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a9bd3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table thead {
+            background-color: #4682b4;
+            color: white;
+        }
+
+        table tfoot {
+            font-weight: bold;
+        }
+
+        dialog {
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: aliceblue;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        dialog .dlgbuttons button {
+            margin: 10px 5px;
+        }
+
+        /* Sticky Footer */
+        footer {
+            background-color: #4682b4;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-  
+    <!-- Sticky Header -->
     <header>
-        <nav class="navbar">
-            <h1 class="header-title">Simple Payroll</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#payroll-form">Payroll Form</a></li>
-                <li><a href="#payroll-table">Employee List</a></li>
-                <li><a href="#footer">Contact</a></li>
-            </ul>
-        </nav>
+        <h1 class="header-title">Simple Payroll</h1>
+        <a href="index.html" class="link">Home</a>
     </header>
 
-    <main class="container">
-      
-        <section id="payroll-form">
-            <form id="employeeForm" novalidate>
-                <label for="name">Employee Name</label>
-                <input type="text" id="name" required />
-                <label for="daysworked">Days Worked</label>
-                <input type="number" id="daysworked" required />
-                <label for="dailyrate">Daily Rate</label>
-                <input type="number" id="dailyrate" required />
-                <label for="deduction">Deduction</label>
-                <input type="number" id="deduction" required />
-                <button type="submit" id="btnsubmit">Submit</button>
-            </form>
-        </section>
+    <!-- Content -->
+    <div class="container">
+        <form id="employeeForm" novalidate>
+            <label for="name">Employee Name</label>
+            <input type="text" id="name" required />
+            <label for="daysworked">Days Worked</label>
+            <input type="number" id="daysworked" required />
+            <label for="dailyrate">Daily Rate</label>
+            <input type="number" id="dailyrate" required />
+            <label for="deduction">Deduction</label>
+            <input type="number" id="deduction" required />
+            <button type="submit" id="btnsubmit">Submit</button>
+        </form>
 
-        <section id="payroll-table">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Employee No.</td>
-                        <td>Employee Name</td>
-                        <td>Days Worked</td>
-                        <td>Daily Rate</td>
-                        <td>Gross Pay</td>
-                        <td>Deduction</td>
-                        <td>Net Pay</td>
-                    </tr>
-                </thead>
-                <tbody id="tablebody"></tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Total:</td>
-                        <td id="tGrossPay" class="ndata">0.00</td>
-                        <td id="tDeduction" class="ndata">0.00</td>
-                        <td id="tNetPay" class="ndata">0.00</td>
-                    </tr>
-                </tfoot>
-            </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee No.</th>
+                    <th>Employee Name</th>
+                    <th>Days Worked</th>
+                    <th>Daily Rate</th>
+                    <th>Gross Pay</th>
+                    <th>Deduction</th>
+                    <th>Net Pay</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right;">Total:</td>
+                    <td id="tGrossPay" class="ndata">0.00</td>
+                    <td id="tDeduction" class="ndata">0.00</td>
+                    <td id="tNetPay" class="ndata">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
 
-            <div>
-                <label>Enter Emp. No.</label>
-                <input id="delemployee" type="number" />
-                <button type="button" id="btnedit">Edit</button>
-                <button type="button" id="btndelete">Delete</button>
-                <button type="button" id="btndeleteall">Delete All</button>
-            </div>
-        </section>
-    </main>
+        <div>
+            <label>Enter Emp. No.</label>
+            <input id="delemployee" type="number" />
+            <button type="button" id="btnedit">Edit</button>
+            <button type="button" id="btndelete">Delete</button>
+            <button type="button" id="btndeleteall">Delete All</button>
+        </div>
+    </div>
 
-    <footer id="footer">
-        <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
+    <!-- Sticky Footer -->
+    <footer>
+        <p>&copy; 2024 Payroll System. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let employeeNo = 1;
+        let totalGrossPay = 0;
+        let totalDeduction = 0;
+        let totalNetPay = 0;
+
+        document.getElementById('employeeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const daysWorked = parseInt(document.getElementById('daysworked').value);
+            const dailyRate = parseFloat(document.getElementById('dailyrate').value);
+            const deduction = parseFloat(document.getElementById('deduction').value);
+
+            // Calculate pay
+            const grossPay = daysWorked * dailyRate;
+            const netPay = grossPay - deduction;
+
+            // Update totals
+            totalGrossPay += grossPay;
+            totalDeduction += deduction;
+            totalNetPay += netPay;
+
+            // Add row to table
+            const tableBody = document.getElementById('tablebody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${employeeNo++}</td>
+                <td>${name}</td>
+                <td>${daysWorked}</td>
+                <td>${dailyRate.toFixed(2)}</td>
+                <td>${grossPay.toFixed(2)}</td>
+                <td>${deduction.toFixed(2)}</td>
+                <td>${netPay.toFixed(2)}</td>
+            `;
+            tableBody.appendChild(newRow);
+
+            // Update footer totals
+            document.getElementById('tGrossPay').textContent = totalGrossPay.toFixed(2);
+            document.getElementById('tDeduction').textContent = totalDeduction.toFixed(2);
+            document.getElementById('tNetPay').textContent = totalNetPay.toFixed(2);
+
+            // Clear form
+            e.target.reset();
+        });
+
+        document.getElementById('btndeleteall').addEventListener('click', function() {
+            if (confirm('Are you sure you want to delete all records?')) {
+                document.getElementById('tablebody').innerHTML = '';
+                totalGrossPay = totalDeduction = totalNetPay = 0;
+                document.getElementById('tGrossPay').textContent = '0.00';
+                document.getElementById('tDeduction').textContent = '0.00';
+                document.getElementById('tNetPay').textContent = '0.00';
+                employeeNo = 1;
+            }
+        });
+    </script>
 </body>
 </html>
-
