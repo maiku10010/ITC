@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Payroll Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payroll-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="payroll-container">
+        <h1>Payroll Calculator</h1>
+        <label for="hoursWorked">Hours Worked</label>
+        <input type="number" id="hoursWorked" placeholder="Enter hours worked">
+
+        <label for="hourlyRate">Hourly Rate</label>
+        <input type="number" id="hourlyRate" placeholder="Enter hourly rate">
+
+        <label for="deductions">Deductions</label>
+        <input type="number" id="deductions" placeholder="Enter deductions">
+
+        <button onclick="calculatePayroll()">Calculate Payroll</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculatePayroll() {
+           
+            const hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
+            const hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+            const deductions = parseFloat(document.getElementById("deductions").value);
+
+           
+            if (isNaN(hoursWorked) || isNaN(hourlyRate) || isNaN(deductions)) {
+                document.getElementById("result").innerText = "Please fill in all fields with valid numbers.";
+                return;
+            }
+
+           
+            const grossPay = hoursWorked * hourlyRate;
+            const netPay = grossPay - deductions;
+
+            document.getElementById("result").innerText = `
+                Gross Pay: $${grossPay.toFixed(2)} \n
+                Deductions: $${deductions.toFixed(2)} \n
+                Net Pay: $${netPay.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>
