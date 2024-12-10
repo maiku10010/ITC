@@ -3,40 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income Tax Calculator</title>
-    <style>
-        .center {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: auto;
-            background-color: aliceblue;
-            padding: 20px;
-            width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .center input, .center label {
-            width: 100%;
-            max-width: 80%;
-        }
-        .center label {
-            text-align: left;
-            font-weight: bold;
-        }
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
-        .tax-percent {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Project Template</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+ 
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="home-link">Home</a>
+            <h1 class="project-title">Income Tax Calculator</h1>
+        </nav>
+    </header>
+
+    
+    <main>
+        </head>
 <body>
     <h1>Income Tax Calculator</h1>
     <div class="center">
@@ -82,9 +63,10 @@
 
             totaltax = basictax + brackettax;
 
-          
+            // Calculate tax percentage
             taxPercent = (totaltax / ti) * 100;
 
+            // Update output fields
             document.getElementById("tp").value = totaltax.toFixed(2);
             document.getElementById("taxPercent").innerText = `Tax Percentage: ${taxPercent.toFixed(2)}%`;
         }
@@ -92,3 +74,11 @@
 </body>
 </html>
 
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Myk Paul Edison L. Fugata. All rights reserved.</p>
+    </footer>
+</body>
+</html>
